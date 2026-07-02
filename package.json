@@ -1,0 +1,56 @@
+{
+  "name": "monthly-fx",
+  "version": "1.0.0",
+  "description": "Tiny, typed, zero-dependency FX rates with monthly-average helpers — free ECB data via Frankfurter, no API key.",
+  "keywords": [
+    "fx",
+    "forex",
+    "exchange-rates",
+    "currency",
+    "currency-converter",
+    "ecb",
+    "frankfurter",
+    "monthly-average",
+    "conversion",
+    "typescript"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "oratis (https://github.com/oratis)",
+  "license": "MIT",
+  "homepage": "https://github.com/oratis/monthly-fx#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oratis/monthly-fx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oratis/monthly-fx/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
+  }
+}
