@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0e1525"/>
+      <stop offset="1" stop-color="#0a0f1c"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#6366f1"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.15" r="0.7">
+      <stop offset="0" stop-color="#6366f1" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#6366f1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect width="1280" height="640" fill="url(#glow)"/>
+
+  <!-- FX sparkline motif -->
+  <polyline points="120,470 240,420 360,450 480,360 600,395 720,300 840,340 960,240 1080,275 1160,190"
+    fill="none" stroke="url(#line)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+  <circle cx="1160" cy="190" r="9" fill="#22d3ee"/>
+
+  <!-- Title block (centered-left) -->
+  <text x="120" y="240" fill="#ffffff" font-size="118" font-weight="800" letter-spacing="-2">monthly-fx</text>
+  <rect x="124" y="270" width="230" height="7" rx="3.5" fill="url(#line)"/>
+
+  <text x="124" y="336" fill="#c3cbd6" font-size="34" font-weight="500">Typed, zero-dependency FX rates —</text>
+  <text x="124" y="382" fill="#c3cbd6" font-size="34" font-weight="500">with the monthly-average helper you actually need.</text>
+
+  <!-- Code chip -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30">
+    <rect x="124" y="430" width="854" height="66" rx="14" fill="#131c2e" stroke="#233149" stroke-width="1.5"/>
+    <text x="152" y="472">
+      <tspan fill="#7cc4ff">getMonthlyAverage</tspan><tspan fill="#c9d3e0">(</tspan><tspan fill="#9ece6a">"USD","CNY","2026-05"</tspan><tspan fill="#c9d3e0">)</tspan><tspan fill="#5b6675"> → </tspan><tspan fill="#ff9e64">6.7992</tspan>
+    </text>
+  </g>
+
+  <!-- Footer meta -->
+  <text x="124" y="556" fill="#6b7688" font-size="24" font-weight="600" letter-spacing="1">MIT  ·  ECB via Frankfurter  ·  zero deps  ·  no API key  ·  npm i monthly-fx</text>
+</svg>

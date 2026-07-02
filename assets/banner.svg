@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 320" width="1280" height="320" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0e1525"/>
+      <stop offset="1" stop-color="#0a0f1c"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#6366f1"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.8" cy="0.2" r="0.6">
+      <stop offset="0" stop-color="#6366f1" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#6366f1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="320" rx="0" fill="url(#bg)"/>
+  <rect width="1280" height="320" fill="url(#glow)"/>
+
+  <!-- FX sparkline motif (right) -->
+  <polyline points="720,215 780,190 840,205 900,150 960,168 1020,120 1080,140 1140,95 1200,110"
+    fill="none" stroke="url(#line)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+  <circle cx="1200" cy="110" r="6" fill="#22d3ee"/>
+
+  <!-- Title -->
+  <text x="80" y="132" fill="#ffffff" font-size="76" font-weight="800" letter-spacing="-1">monthly-fx</text>
+  <rect x="82" y="150" width="150" height="5" rx="2.5" fill="url(#line)"/>
+
+  <!-- Tagline -->
+  <text x="80" y="196" fill="#9aa4b2" font-size="25" font-weight="500">Typed, zero-dependency FX rates — with the monthly-average helper you actually need.</text>
+
+  <!-- Code chip -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21">
+    <rect x="80" y="224" width="620" height="46" rx="10" fill="#131c2e" stroke="#233149" stroke-width="1"/>
+    <text x="100" y="253">
+      <tspan fill="#7cc4ff">getMonthlyAverage</tspan><tspan fill="#c9d3e0">(</tspan><tspan fill="#9ece6a">"USD","CNY","2026-05"</tspan><tspan fill="#c9d3e0">)</tspan><tspan fill="#5b6675"> → </tspan><tspan fill="#ff9e64">6.7992</tspan>
+    </text>
+  </g>
+
+  <!-- Footer meta -->
+  <text x="720" y="258" fill="#5b6675" font-size="17" font-weight="600" letter-spacing="0.5">MIT · ECB via Frankfurter · no API key</text>
+</svg>

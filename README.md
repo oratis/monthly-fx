@@ -1,9 +1,15 @@
-# monthly-fx
+<p align="center">
+  <a href="https://www.npmjs.com/package/monthly-fx"><img src="https://raw.githubusercontent.com/oratis/monthly-fx/main/assets/banner.png" alt="monthly-fx" width="860"></a>
+</p>
+
+<p align="center">
 
 [![npm version](https://img.shields.io/npm/v/monthly-fx.svg)](https://www.npmjs.com/package/monthly-fx)
 [![CI](https://github.com/oratis/monthly-fx/actions/workflows/ci.yml/badge.svg)](https://github.com/oratis/monthly-fx/actions/workflows/ci.yml)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/monthly-fx)](https://bundlephobia.com/package/monthly-fx)
 [![license](https://img.shields.io/npm/l/monthly-fx.svg)](./LICENSE)
+
+</p>
 
 **Tiny, typed, zero-dependency foreign-exchange rates — with the monthly-average helper you actually need.**
 
