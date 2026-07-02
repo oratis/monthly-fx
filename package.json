@@ -1,6 +1,6 @@
 {
   "name": "monthly-fx",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tiny, typed, zero-dependency FX rates with monthly-average helpers — free ECB data via Frankfurter, no API key.",
   "keywords": [
     "fx",

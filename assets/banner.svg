@@ -33,7 +33,7 @@
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="21">
     <rect x="80" y="224" width="620" height="46" rx="10" fill="#131c2e" stroke="#233149" stroke-width="1"/>
     <text x="100" y="253">
-      <tspan fill="#7cc4ff">getMonthlyAverage</tspan><tspan fill="#c9d3e0">(</tspan><tspan fill="#9ece6a">"USD","CNY","2026-05"</tspan><tspan fill="#c9d3e0">)</tspan><tspan fill="#5b6675"> → </tspan><tspan fill="#ff9e64">6.7992</tspan>
+      <tspan fill="#7cc4ff">getMonthlyAverage</tspan><tspan fill="#c9d3e0">(</tspan><tspan fill="#9ece6a">"EUR","USD","2024-03"</tspan><tspan fill="#c9d3e0">)</tspan><tspan fill="#5b6675"> → </tspan><tspan fill="#ff9e64">1.0872</tspan>
     </text>
   </g>
 

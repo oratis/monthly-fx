@@ -14,16 +14,16 @@ function mockFetch(routes: Record<string, unknown>, calls: string[] = []): Fetch
 describe("MonthlyFx", () => {
   it("getRate returns the requested pair", async () => {
     const fx = new MonthlyFx({
-      fetch: mockFetch({ "/latest": { amount: 1, base: "USD", date: "2024-05-31", rates: { CNY: 7.2 } } }),
+      fetch: mockFetch({ "/latest": { amount: 1, base: "EUR", date: "2024-05-31", rates: { USD: 1.1 } } }),
     });
-    expect(await fx.getRate("usd", "cny")).toBe(7.2);
+    expect(await fx.getRate("eur", "usd")).toBe(1.1);
   });
 
   it("convert multiplies by the rate", async () => {
     const fx = new MonthlyFx({
-      fetch: mockFetch({ "/latest": { amount: 1, base: "USD", date: "2024-05-31", rates: { CNY: 7 } } }),
+      fetch: mockFetch({ "/latest": { amount: 1, base: "EUR", date: "2024-05-31", rates: { USD: 1.1 } } }),
     });
-    expect(await fx.convert(10, "USD", "CNY")).toBe(70);
+    expect(await fx.convert(10, "EUR", "USD")).toBeCloseTo(11, 10);
   });
 
   it("getMonthlyAverage averages the month's business days and requests the right range", async () => {
@@ -33,39 +33,39 @@ describe("MonthlyFx", () => {
         {
           "2024-02-01..2024-02-29": {
             amount: 1,
-            base: "USD",
+            base: "EUR",
             start_date: "2024-02-01",
             end_date: "2024-02-29",
-            rates: { "2024-02-01": { CNY: 7.0 }, "2024-02-02": { CNY: 7.2 }, "2024-02-05": { CNY: 7.4 } },
+            rates: { "2024-02-01": { USD: 1.0 }, "2024-02-02": { USD: 1.1 }, "2024-02-05": { USD: 1.2 } },
           },
         },
         calls,
       ),
     });
-    const avg = await fx.getMonthlyAverage("USD", "CNY", "2024-02");
-    expect(avg).toBeCloseTo(7.2, 10); // (7.0 + 7.2 + 7.4) / 3
+    const avg = await fx.getMonthlyAverage("EUR", "USD", "2024-02");
+    expect(avg).toBeCloseTo(1.1, 10); // (1.0 + 1.1 + 1.2) / 3
     expect(calls[0]).toContain("2024-02-01..2024-02-29"); // leap-year last day resolved correctly
   });
 
   it("getMonthlyAverages walks the inclusive month range", async () => {
     const fx = new MonthlyFx({
       fetch: mockFetch({
-        "2024-01-01..2024-01-31": { rates: { "2024-01-02": { CNY: 7.1 } } },
-        "2024-02-01..2024-02-29": { rates: { "2024-02-02": { CNY: 7.3 } } },
+        "2024-01-01..2024-01-31": { rates: { "2024-01-02": { USD: 1.05 } } },
+        "2024-02-01..2024-02-29": { rates: { "2024-02-02": { USD: 1.15 } } },
       }),
     });
-    const out = await fx.getMonthlyAverages("USD", "CNY", "2024-01", "2024-02");
+    const out = await fx.getMonthlyAverages("EUR", "USD", "2024-01", "2024-02");
     expect(Object.keys(out)).toEqual(["2024-01", "2024-02"]);
-    expect(out["2024-02"]).toBeCloseTo(7.3, 10);
+    expect(out["2024-02"]).toBeCloseTo(1.15, 10);
   });
 
   it("rejects a malformed month", async () => {
     const fx = new MonthlyFx({ fetch: mockFetch({}) });
-    await expect(fx.getMonthlyAverage("USD", "CNY", "2024/02")).rejects.toThrow(/YYYY-MM/);
+    await expect(fx.getMonthlyAverage("EUR", "USD", "2024/02")).rejects.toThrow(/YYYY-MM/);
   });
 
   it("throws FxError on a non-2xx response", async () => {
     const fx = new MonthlyFx({ fetch: mockFetch({}) }); // every route 404s
-    await expect(fx.getLatest("USD")).rejects.toBeInstanceOf(FxError);
+    await expect(fx.getLatest("EUR")).rejects.toBeInstanceOf(FxError);
   });
 });

@@ -25,13 +25,13 @@ npm i monthly-fx
 import { getRate, convert, getMonthlyAverage } from "monthly-fx";
 
 // Latest spot rate
-await getRate("USD", "CNY");                 // → 7.18
+await getRate("EUR", "USD");                 // → 1.14
 
 // Convert an amount
-await convert(100, "USD", "EUR");            // → 92.4
+await convert(100, "EUR", "USD");            // → 113.83
 
 // 👇 the reason this package exists: a period-average rate for a whole month
-await getMonthlyAverage("USD", "CNY", "2026-05");   // → 6.7992  (avg of May's business days)
+await getMonthlyAverage("EUR", "USD", "2024-03");   // → 1.0872  (avg of March's business days)
 ```
 
 Need several months at once (e.g. to build a report)?
@@ -39,8 +39,8 @@ Need several months at once (e.g. to build a report)?
 ```ts
 import { getMonthlyAverages } from "monthly-fx";
 
-await getMonthlyAverages("USD", "CNY", "2025-11", "2026-06");
-// → { "2025-11": 7.1067, "2025-12": 7.0453, "2026-01": 6.9708, ... }
+await getMonthlyAverages("EUR", "USD", "2024-01", "2024-04");
+// → { "2024-01": 1.0911, "2024-02": 1.0795, "2024-03": 1.0872, "2024-04": 1.0732 }
 ```
 
 ## Why?
